@@ -11,6 +11,7 @@ def open_url_in_loop(url, timee):
     print(url, timee)
     while not global_stop_flag:
         webbrowser.open(url)
+        print("OK 202")
         time.sleep(timee * 3600)
 
 def sitechecker(request):
