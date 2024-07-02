@@ -8,7 +8,7 @@ global_thread = None
 
 def open_url_in_loop(url, timee):
     global global_stop_flag
-
+    print(url, timee)
     while not global_stop_flag:
         webbrowser.open(url)
         time.sleep(timee * 3600)
@@ -26,7 +26,7 @@ def sitechecker(request):
         global_thread.start()
 
         msg = f"{url} manzilga har {timee} soatda kirilib tursin!"
-        return render(request, 'index.html', {'msg': msg, 'url': url, 'time': time})
+        return render(request, 'index.html', {'msg': msg})
 
     elif request.method == 'GET' and 'q' in request.GET and request.GET['q'] == 'stop':
         global_stop_flag = True
